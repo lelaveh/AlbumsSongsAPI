@@ -28,9 +28,6 @@ namespace DAL
                 var songList = _songRepo.GetSongsFromAl(alId);        
                 return new Album(songList, alId, alTitle, alArtist);    
             }
-            
-            
-
             return null;
         }
 
