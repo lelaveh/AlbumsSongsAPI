@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Амир\.nuget\packages\microsoft.net.test.sdk\16.5.0\build\netcoreapp2.1" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\Амир\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
+    <e p="C:\Users\Амир\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
+    <e p="C:\Users\Амир\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.api.dll" t="Include" />
+    <e p="C:\Users\Амир\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.dll" t="Include" />
+    <e p="C:\Users\Амир\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\Амир\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="C:\Users\Амир\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Амир\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_AlbumsSongsAPI.-1294750214.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Амир\Downloads\AlbumsSongs-API-master\AlbumsSongs-API-master" t="IncludeFlat">
+      <e p="AlbumsSongsAPI" t="IncludeRecursive">
+        <e p="AlbumsSongsAPI.csproj" t="IncludeRecursive" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="AlbumsController.cs" t="Include" />
+          <e p="SongsController.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="AlbumsSongsAPI.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="AlbumsSongsAPI.sln" t="IncludeFlat" />
+      <e p="BLL" t="IncludeRecursive">
+        <e p="AbstractBLL.cs" t="Include" />
+        <e p="AlbumBLL.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="BLL.csproj" t="IncludeRecursive" />
+        <e p="Interfaces" t="Include">
+          <e p="ABLInterface.cs" t="Include" />
+          <e p="SBLInterface.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="BLL.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="SongBLL.cs" t="Include" />
+        <e p="Tests" t="Include">
+          <e p="AlbumTest.cs" t="Include" />
+          <e p="SongTest.cs" t="Include" />
+        </e>
+      </e>
+      <e p="DAL" t="IncludeRecursive">
+        <e p="AlbumRepo.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="config.json" t="Include" />
+        <e p="DAL.csproj" t="IncludeRecursive" />
+        <e p="Interfaces" t="Include">
+          <e p="ARInterface.cs" t="Include" />
+          <e p="SRInterface.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="DAL.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Repo.cs" t="Include" />
+        <e p="SongRepo.cs" t="Include" />
+      </e>
+      <e p="Domain" t="IncludeRecursive">
+        <e p="Album.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Domain.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Domain.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Song.cs" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

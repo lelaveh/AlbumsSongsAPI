@@ -1,0 +1,13 @@
+C:\Users\Амир\Downloads\AlbumsSongs-API-master\AlbumsSongs-API-master\DAL\bin\Debug\netcoreapp3.1\DAL.deps.json
+C:\Users\Амир\Downloads\AlbumsSongs-API-master\AlbumsSongs-API-master\DAL\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\Амир\Downloads\AlbumsSongs-API-master\AlbumsSongs-API-master\DAL\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\Амир\Downloads\AlbumsSongs-API-master\AlbumsSongs-API-master\DAL\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\Амир\Downloads\AlbumsSongs-API-master\AlbumsSongs-API-master\DAL\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\Амир\Downloads\AlbumsSongs-API-master\AlbumsSongs-API-master\DAL\obj\Debug\netcoreapp3.1\DAL.csprojAssemblyReference.cache
+C:\Users\Амир\Downloads\AlbumsSongs-API-master\AlbumsSongs-API-master\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfoInputs.cache
+C:\Users\Амир\Downloads\AlbumsSongs-API-master\AlbumsSongs-API-master\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfo.cs
+C:\Users\Амир\Downloads\AlbumsSongs-API-master\AlbumsSongs-API-master\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.CopyComplete
+C:\Users\Амир\Downloads\AlbumsSongs-API-master\AlbumsSongs-API-master\DAL\obj\Debug\netcoreapp3.1\DAL.dll
+C:\Users\Амир\Downloads\AlbumsSongs-API-master\AlbumsSongs-API-master\DAL\obj\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\Амир\Downloads\AlbumsSongs-API-master\AlbumsSongs-API-master\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.json
+C:\Users\Амир\Downloads\AlbumsSongs-API-master\AlbumsSongs-API-master\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.dev.json

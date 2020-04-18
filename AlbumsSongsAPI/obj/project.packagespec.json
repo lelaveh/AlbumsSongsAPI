@@ -1,0 +1,75 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "C:\\Users\\Амир\\Downloads\\AlbumsSongs-API-master\\AlbumsSongs-API-master\\AlbumsSongsAPI\\AlbumsSongsAPI.csproj",
+    "projectName": "AlbumsSongsAPI",
+    "projectPath": "C:\\Users\\Амир\\Downloads\\AlbumsSongs-API-master\\AlbumsSongs-API-master\\AlbumsSongsAPI\\AlbumsSongsAPI.csproj",
+    "outputPath": "C:\\Users\\Амир\\Downloads\\AlbumsSongs-API-master\\AlbumsSongs-API-master\\AlbumsSongsAPI\\obj\\",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp3.1"
+    ],
+    "sources": {
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "projectReferences": {
+          "C:\\Users\\Амир\\Downloads\\AlbumsSongs-API-master\\AlbumsSongs-API-master\\BLL\\BLL.csproj": {
+            "projectPath": "C:\\Users\\Амир\\Downloads\\AlbumsSongs-API-master\\AlbumsSongs-API-master\\BLL\\BLL.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp3.1": {
+      "dependencies": {
+        "Microsoft.AspNet.Mvc": {
+          "target": "Package",
+          "version": "[5.2.7, )"
+        },
+        "Microsoft.AspNetCore.Razor.Design": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.2.0, )"
+        },
+        "Ninject": {
+          "target": "Package",
+          "version": "[3.3.4, )"
+        },
+        "Ninject.MVC5": {
+          "target": "Package",
+          "version": "[3.3.0, )"
+        }
+      },
+      "imports": [
+        "net461",
+        "net462",
+        "net47",
+        "net471",
+        "net472",
+        "net48"
+      ],
+      "assetTargetFallback": true,
+      "warn": true,
+      "frameworkReferences": {
+        "Microsoft.AspNetCore.App": {
+          "privateAssets": "none"
+        },
+        "Microsoft.NETCore.App": {
+          "privateAssets": "all"
+        }
+      },
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+    }
+  }
+}
