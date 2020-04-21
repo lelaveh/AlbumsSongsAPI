@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using BLL;
 using DAL;
 using Domain;
 using NUnit.Framework;
+using FluentAssertions;
 
-namespace BLL.Test
+namespace BLL.TEST
 {
-    [TestFixture]
+   [TestFixture]
     public class SongTest
     {
         static SongBLL songBll = new SongBLL(new SongRepo());
@@ -15,16 +15,17 @@ namespace BLL.Test
         [Test]
         public void GetItemByIdTest()
         {
-            var song = new Song(-1, "Фольксваген", "Новый хит", 32);
+            Song song = new Song(-1, "Фольксваген", "Новый хит", 32);
             int id = songBll.CreateNewItem(song).SongId;
-            var testSong = songBll.GetItemById(id);
+            Song? testSong = songBll.GetItemById(id);
 
-            Assert.NotNull(testSong);
-            Assert.AreEqual(song, testSong);
+            testSong.Should().NotBeNull();
+            testSong.Should().BeEquivalentTo(song);
+            // Assert.AreEqual(song, testSong);
+            
             songBll.DeleteItemById(id);
         }
         
-        //
         [Test]
         public void UpdateItemTest()
         {
@@ -33,9 +34,9 @@ namespace BLL.Test
             var updatedSong = new Song(id, "Updated song", "Updated desc", 12);
             songBll.UpdateItem(updatedSong);
 
-            var songTest = songBll.GetItemById(id);
-            Assert.NotNull(songTest);
-            Assert.AreEqual(updatedSong, songTest);
+            Song? songTest = songBll.GetItemById(id);
+            songTest.Should().NotBeNull();
+            songTest.Should().BeEquivalentTo(updatedSong);
             songBll.DeleteItemById(id);
 
         }
@@ -50,10 +51,10 @@ namespace BLL.Test
             
             List<Song> songs = new List<Song>() {song1, song2};
         
-            List<Song> testedSongs = songBll.GetItemsWithTitle("default") as List<Song>;
+            List<Song>? testedSongs = songBll.GetItemsWithTitle("default") as List<Song>;
         
-            Assert.NotNull(testedSongs);
-            Assert.AreEqual(songs, testedSongs);
+            testedSongs.Should().NotBeNull();
+            testedSongs.Should().BeEquivalentTo(songs);
             songBll.DeleteItemById(id1);
             songBll.DeleteItemById(id2);
         }
@@ -68,10 +69,10 @@ namespace BLL.Test
             int id2 = songBll.CreateNewItem(song2).SongId;
             int id3 = songBll.CreateNewItem(song3).SongId;
             List<Song> allSongs = new List<Song>() {song1, song2, song3};
-            List<Song> getAllSongs = songBll.GetAllItems() as List<Song>;
+            List<Song>? getAllSongs = songBll.GetAllItems() as List<Song>;
             
-            Assert.NotNull(getAllSongs);
-            Assert.AreEqual(allSongs, getAllSongs);
+            getAllSongs.Should().NotBeNull();
+            getAllSongs.Should().BeEquivalentTo(allSongs);
             songBll.DeleteItemById(id1);
             songBll.DeleteItemById(id2);
             songBll.DeleteItemById(id3);
@@ -83,7 +84,9 @@ namespace BLL.Test
             Song songToDelete = new Song(-1, "song to delete", "song to delete", -1 );
             int idToDelete = songBll.CreateNewItem(songToDelete).SongId;
             songBll.DeleteItemById(idToDelete);
-            Assert.Null(songBll.GetItemById(idToDelete));
+            Song? song = songBll.GetItemById(idToDelete);
+            song.Should().BeNull();
+
         }
         
         

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,18 +7,19 @@ using Domain;
 
 namespace DAL
 {
-    public class AlbumRepo : Repo<Album>, ARInterface
+    public class AlbumRepo : ARInterface
     {
         public AlbumRepo(SRInterface songRepo)
         {
-            _songRepo = (SongRepo) songRepo;
+            _songRepo = songRepo;
         } 
-        private SongRepo _songRepo;
-        public override Album GetItemById(int id)
+        private SRInterface _songRepo;
+        public Album GetItemById(int id)
         {
             SqlParameter parameter = new SqlParameter("id", SqlDbType.Int, 50) {Value = id};
             var sqlSelectAlbum = $"SELECT * FROM albums WHERE id = {parameter.Value}";
-            var res = QueryDB(sqlSelectAlbum);
+            RepoInterface<Album> repoInterface = this;
+            var res = repoInterface.QueryDB(sqlSelectAlbum);
             if (res.Rows.Count > 0)
             {
                 var rawCol = res.Rows[0].ItemArray;
@@ -31,7 +32,7 @@ namespace DAL
             return null;
         }
 
-        public override Album SaveItem(Album album)
+        public Album SaveItem(Album album)
         {
             SqlParameter[] parameter =
             {
@@ -39,7 +40,8 @@ namespace DAL
                 new SqlParameter("artist", SqlDbType.VarChar, 50) {Value = album.Artist}
             };
             var sqlInsertAlbum= $"INSERT INTO albums (title, artist) VALUES (\"{parameter[0].Value}\", \"{parameter[1].Value}\" )";
-            int id = InsertIntoDB(sqlInsertAlbum);
+            RepoInterface<Album> repoInterface = this;
+            int id = repoInterface.InsertIntoDB(sqlInsertAlbum);
             album.AlbumId = id;
             
             if (album.SongList != null)
@@ -51,17 +53,18 @@ namespace DAL
             return album;
         }
 
-        public override int DeleteItem(int id)
+        public int DeleteItem(int id)
         {
             SqlParameter parameter = new SqlParameter("id", SqlDbType.Int, 50) {Value = id};
             var sqlDeleteAlbum = $"DELETE FROM albums WHERE id = {parameter.Value}";
             var sqlDeleteCards = $"DELETE FROM songs WHERE album_id = {parameter.Value}";
-            QueryDB(sqlDeleteAlbum);
-            QueryDB(sqlDeleteCards);
+            RepoInterface<Album> repoInterface = this;
+            repoInterface.QueryDB(sqlDeleteAlbum);
+            repoInterface.QueryDB(sqlDeleteCards);
             return id;
         }
 
-        public override Album UpdateItem(Album album)
+        public Album UpdateItem(Album album)
         {
             SqlParameter[] parameter =
             {
@@ -70,14 +73,16 @@ namespace DAL
                 new SqlParameter("id", SqlDbType.Int, 50) {Value = album.AlbumId}
             };
             var sqlUpdateColTitle = $"UPDATE albums SET title = \"{parameter[0].Value}\", artist = \"{parameter[1].Value}\" WHERE id = {parameter[2].Value}";
-            QueryDB(sqlUpdateColTitle);
+            RepoInterface<Album> repoInterface = this;
+            repoInterface.QueryDB(sqlUpdateColTitle);
             return album;
         }
 
-        public override IEnumerable<Album> GetAllItems()
+        public IEnumerable<Album> GetAllItems()
         {
             var sqlSelectAllAlbums = "SELECT * FROM albums ORDER BY id";
-            var rawCols = QueryDB(sqlSelectAllAlbums);
+            RepoInterface<Album> repoInterface = this;
+            var rawCols = repoInterface.QueryDB(sqlSelectAllAlbums);
             var alList = new List<Album>();
             foreach (DataRow dataRow in rawCols.Rows)
             {

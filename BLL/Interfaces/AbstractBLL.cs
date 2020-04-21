@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-namespace BLL
+namespace BLL.Interfaces
 {
-    public abstract class AbstractBLL<T>
+    public interface AbstractBLL<T>
     {
         public abstract T GetItemById(int id);
         public abstract T CreateNewItem(T item);

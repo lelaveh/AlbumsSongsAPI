@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
-using DAL;
+﻿﻿﻿using System.Collections.Generic;
+  using BLL;
+  using DAL;
 using Domain;
-using NUnit.Framework;
+  using FluentAssertions;
+  using NUnit.Framework;
 
-namespace BLL.Test
+namespace BLL.TEST
 {
     [TestFixture]
     public class AlbumTest
@@ -15,10 +17,10 @@ namespace BLL.Test
         {
             Album album = new Album(null, -1, "by id", "by id");
             int id = albumBll.CreateNewItem(album).AlbumId;
-            Album albumTest = albumBll.GetItemById(id);
+            Album? albumTest = albumBll.GetItemById(id);
 
-            Assert.NotNull(albumTest);
-            Assert.AreEqual(album, albumTest);
+            albumTest.Should().NotBeNull();
+            albumTest.Should().BeEquivalentTo(album);
             albumBll.DeleteItemById(id);
         }
 
@@ -29,7 +31,8 @@ namespace BLL.Test
             Album albumToDelete = new Album(null, -1, "to delete", "to delete");
             int id = albumBll.CreateNewItem(albumToDelete).AlbumId;
             albumBll.DeleteItemById(id);
-            Assert.Null(albumBll.GetItemById(id));
+            Album? albumTest = albumBll.GetItemById(id);
+            albumTest.Should().BeNull();
         }
 
         [Test]
@@ -39,10 +42,9 @@ namespace BLL.Test
             int id = albumBll.CreateNewItem(album).AlbumId;
             Album updatedAlbum = new Album(null, id, "updated", "updated");
             albumBll.UpdateItem(updatedAlbum);
-            Album albumTest = albumBll.GetItemById(id);
-
-            Assert.NotNull(albumTest);
-            Assert.AreEqual(updatedAlbum, albumTest);
+            Album? albumTest = albumBll.GetItemById(id);
+            albumTest.Should().NotBeNull();
+            albumTest.Should().BeEquivalentTo(updatedAlbum);
             albumBll.DeleteItemById(id);
         }
 
@@ -58,10 +60,10 @@ namespace BLL.Test
             int id3 = albumBll.CreateNewItem(album3).AlbumId;
 
             List<Album> albums = new List<Album>() {album1, album2, album3};
-            List<Album> albumsToTest = albumBll.GetAllItems() as List<Album>;
+            List<Album>? albumsToTest = albumBll.GetAllItems() as List<Album>;
 
-            Assert.NotNull(albumsToTest);
-            Assert.AreEqual(albums, albumsToTest);
+            albumsToTest.Should().NotBeNull();
+            albumsToTest.Should().BeEquivalentTo(albums);
 
             albumBll.DeleteItemById(id1);
             albumBll.DeleteItemById(id2);

@@ -1,24 +1,25 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.IO;
 
-namespace DAL
+namespace DAL.Interfaces
 {
-    public abstract class Repo<T>
+    public interface RepoInterface<T>
     {
-        
         static string _dir = Directory.GetCurrentDirectory();
         static string _dbStr = _dir.Substring(0, _dir.LastIndexOf("\\")) + "\\AlbumsSongs.db";
         static string connString = $"Data Source={_dbStr};Version=3;";
-        public abstract T GetItemById(int id);
-        public abstract T SaveItem(T item);
-        public abstract int DeleteItem(int id);
-        public abstract T UpdateItem(T item);
-        public abstract IEnumerable<T> GetAllItems();
 
-        protected DataTable QueryDB(string sqlString)
+        
+        public T GetItemById(int id);
+        public T SaveItem(T item);
+        public int DeleteItem(int id);
+        public T UpdateItem(T item);
+        public IEnumerable<T> GetAllItems();
+
+        public DataTable QueryDB(string sqlString)
         {
             var resTable = new DataTable();
             using (var connection = new SQLiteConnection(connString))
@@ -34,7 +35,7 @@ namespace DAL
             return resTable;
         }
       
-        protected int InsertIntoDB(string sqlString)
+        public int InsertIntoDB(string sqlString)
         {
             int id;
             using (var connection = new SQLiteConnection(connString))

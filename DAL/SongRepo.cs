@@ -7,9 +7,9 @@ using Domain;
 
 namespace DAL
 {
-    public class SongRepo : Repo<Song>, SRInterface
+    public class SongRepo : SRInterface
     {        
-        public override Song SaveItem(Song song)
+        public Song SaveItem(Song song)
         {
             SqlParameter[] parameters =
             {    
@@ -18,20 +18,22 @@ namespace DAL
                 new SqlParameter("@album_id", SqlDbType.Int, 50) { Value = song.AlbumId},
             };
             var sqlInsertString = $"INSERT INTO songs (title, descr, album_id) VALUES (\"{parameters[0].Value}\" , \"{parameters[1].Value}\", \"{parameters[2].Value}\")";
-            int id = InsertIntoDB(sqlInsertString);
+            SRInterface srInterface = this;
+            int id = srInterface.InsertIntoDB(sqlInsertString);
             song.SongId = id;
             return song;
         }
 
-        public override int DeleteItem(int id)
+        public int DeleteItem(int id)
         {
             SqlParameter parameter = new SqlParameter("id", SqlDbType.Int, 50) {Value = id};
             var sqlDeleteString = $"DELETE FROM songs WHERE id = {parameter.Value}";
-            QueryDB(sqlDeleteString);
+            SRInterface srInterface = this;
+            srInterface.QueryDB(sqlDeleteString);
             return id;
         }
 
-        public override Song UpdateItem(Song song)
+        public Song UpdateItem(Song song)
         {
             SqlParameter[] parameters =
             {    
@@ -45,15 +47,17 @@ namespace DAL
                             $"descr=\"{parameters[1].Value}\"," +
                             $"album_id={parameters[2].Value} " +
                             $"WHERE songs.id = {parameters[3].Value}";
-            QueryDB(sqlUpdate);
+            SRInterface srInterface = this;
+            srInterface.QueryDB(sqlUpdate);
             return song;
         }
 
-        public override Song GetItemById(int id)
+        public Song GetItemById(int id)
         {
             SqlParameter sqlParameter = new SqlParameter("id", SqlDbType.Int, 50) {Value = id};
             var sqlDeleteString = $"SELECT * FROM songs WHERE id = {sqlParameter.Value}"; 
-            var res = QueryDB(sqlDeleteString); 
+            SRInterface srInterface = this;
+            var res = srInterface.QueryDB(sqlDeleteString); 
             if (res.Rows.Count > 0)
             {
                 var data = res.Rows[0].ItemArray;
@@ -64,10 +68,11 @@ namespace DAL
             return null;
         }
         
-        public override IEnumerable<Song> GetAllItems()
+        public IEnumerable<Song> GetAllItems()
         {
             var sqlSelectAllSongs = "SELECT * FROM songs ORDER BY songs.id";
-            var rawList = QueryDB(sqlSelectAllSongs);
+            SRInterface srInterface = this;
+            var rawList = srInterface.QueryDB(sqlSelectAllSongs);
             var resList = new List<Song>();
             foreach (DataRow row in rawList.Rows)
             {
@@ -83,7 +88,8 @@ namespace DAL
         {
             SqlParameter parameter = new SqlParameter("albumId", SqlDbType.Int, 50) {Value = albumId}; 
             string sqlSelectSongs = $"SELECT * FROM songs WHERE album_id = {parameter.Value} ORDER BY id";
-            var rawSongs = QueryDB(sqlSelectSongs).Rows;
+            SRInterface srInterface = this;
+            var rawSongs = srInterface.QueryDB(sqlSelectSongs).Rows;
             List<Song>songList = new List<Song>();
             for(int i = 0; i < rawSongs.Count; i++)
             {
@@ -100,7 +106,8 @@ namespace DAL
         {
             SqlParameter parameter = new SqlParameter("title", SqlDbType.VarChar, 50) {Value = title};
             string sqlSelectSongsWithString = $"SELECT * FROM songs WHERE title = \"{parameter.Value}\" ORDER BY id";
-            var rawRes = QueryDB(sqlSelectSongsWithString).Rows;
+            SRInterface srInterface = this;
+            var rawRes = srInterface.QueryDB(sqlSelectSongsWithString).Rows;
             List<Song> songList = new List<Song>();
             foreach (DataRow dataRow in rawRes)
             {

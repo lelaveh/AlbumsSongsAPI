@@ -34,12 +34,12 @@
       </e>
       <e p="AlbumsSongsAPI.sln" t="IncludeFlat" />
       <e p="BLL" t="IncludeRecursive">
-        <e p="AbstractBLL.cs" t="Include" />
         <e p="AlbumBLL.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="BLL.csproj" t="IncludeRecursive" />
         <e p="Interfaces" t="Include">
           <e p="ABLInterface.cs" t="Include" />
+          <e p="AbstractBLL.cs" t="Include" />
           <e p="SBLInterface.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -50,18 +50,29 @@
           </e>
         </e>
         <e p="SongBLL.cs" t="Include" />
-        <e p="Tests" t="Include">
-          <e p="AlbumTest.cs" t="Include" />
-          <e p="SongTest.cs" t="Include" />
+      </e>
+      <e p="BLL.TEST" t="IncludeRecursive">
+        <e p="AlbumTest.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="BLL.TEST.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="BLL.TEST.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
         </e>
+        <e p="SongTest.cs" t="Include" />
       </e>
       <e p="DAL" t="IncludeRecursive">
         <e p="AlbumRepo.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="config.json" t="Include" />
         <e p="DAL.csproj" t="IncludeRecursive" />
+        <e p="Entities" t="Include" />
         <e p="Interfaces" t="Include">
           <e p="ARInterface.cs" t="Include" />
+          <e p="RepoInterface.cs" t="Include" />
           <e p="SRInterface.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -71,7 +82,6 @@
             </e>
           </e>
         </e>
-        <e p="Repo.cs" t="Include" />
         <e p="SongRepo.cs" t="Include" />
       </e>
       <e p="Domain" t="IncludeRecursive">

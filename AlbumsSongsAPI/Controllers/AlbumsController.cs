@@ -15,9 +15,9 @@ namespace AlbumsSongsAPI.Controllers
     {
         public AlbumsController(ABLInterface albumBll)
         {
-            _albumBll = (AlbumBLL) albumBll;
+            _albumBll = albumBll;
         }
-        private AlbumBLL _albumBll;
+        private ABLInterface _albumBll;
         
         /// <summary>
         /// get api/albums/[id] получение альбома по Id

@@ -1,0 +1,66 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "C:\\Users\\Амир\\Downloads\\AlbumsSongs-API-master\\AlbumsSongs-API-master\\BLL.TEST\\BLL.TEST.csproj",
+    "projectName": "BLL.TEST",
+    "projectPath": "C:\\Users\\Амир\\Downloads\\AlbumsSongs-API-master\\AlbumsSongs-API-master\\BLL.TEST\\BLL.TEST.csproj",
+    "outputPath": "C:\\Users\\Амир\\Downloads\\AlbumsSongs-API-master\\AlbumsSongs-API-master\\BLL.TEST\\obj\\",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp3.1"
+    ],
+    "sources": {
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "projectReferences": {
+          "C:\\Users\\Амир\\Downloads\\AlbumsSongs-API-master\\AlbumsSongs-API-master\\BLL\\BLL.csproj": {
+            "projectPath": "C:\\Users\\Амир\\Downloads\\AlbumsSongs-API-master\\AlbumsSongs-API-master\\BLL\\BLL.csproj"
+          },
+          "C:\\Users\\Амир\\Downloads\\AlbumsSongs-API-master\\AlbumsSongs-API-master\\DAL\\DAL.csproj": {
+            "projectPath": "C:\\Users\\Амир\\Downloads\\AlbumsSongs-API-master\\AlbumsSongs-API-master\\DAL\\DAL.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp3.1": {
+      "dependencies": {
+        "FluentAssertions": {
+          "target": "Package",
+          "version": "[5.10.3, )"
+        },
+        "nunit": {
+          "target": "Package",
+          "version": "[3.12.0, )"
+        }
+      },
+      "imports": [
+        "net461",
+        "net462",
+        "net47",
+        "net471",
+        "net472",
+        "net48"
+      ],
+      "assetTargetFallback": true,
+      "warn": true,
+      "frameworkReferences": {
+        "Microsoft.NETCore.App": {
+          "privateAssets": "all"
+        }
+      },
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+    }
+  }
+}

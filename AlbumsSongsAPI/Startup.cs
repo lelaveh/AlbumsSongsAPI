@@ -24,6 +24,7 @@ namespace AlbumsSongsAPI
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddMvc(option => option.EnableEndpointRouting = false);
+            
             services.AddScoped<SBLInterface, SongBLL>();
             services.AddScoped<ABLInterface, AlbumBLL>();
             services.AddScoped<SRInterface, SongRepo>();

@@ -8,7 +8,6 @@ namespace Domain
 {
     public class Album
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AlbumId { get; set; }
 
         public List<Song> SongList { get; set; }

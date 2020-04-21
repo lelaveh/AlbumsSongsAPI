@@ -8,39 +8,39 @@ using Domain;
 
 namespace BLL
 {
-    public class SongBLL : AbstractBLL<Song>, SBLInterface
+    public class SongBLL : SBLInterface
     {
-        private readonly SongRepo _songRepo;
+        private readonly SRInterface _songRepo;
 
         public SongBLL(SRInterface songRepo)
         {
-            _songRepo = (SongRepo) songRepo;
+            _songRepo = songRepo;
         }
 
-        public override Song GetItemById(int id)
+        public Song GetItemById(int id)
         {
             var song = _songRepo.GetItemById(id);
             return song;
         }
         
-        public override Song CreateNewItem(Song song)
+        public Song CreateNewItem(Song song)
         {
             var savedSong = _songRepo.SaveItem(song);
             return savedSong;
         }
 
-        public override int DeleteItemById(int id)
+        public int DeleteItemById(int id)
         {
             return _songRepo.DeleteItem(id);
         }
 
-        public override Song UpdateItem(Song song)
+        public Song UpdateItem(Song song)
         {
             var updatedSong = _songRepo.UpdateItem(song);
             return updatedSong;
         }
 
-        public override IEnumerable<Song> GetAllItems()
+        public IEnumerable<Song> GetAllItems()
         {
             return _songRepo.GetAllItems();
         }

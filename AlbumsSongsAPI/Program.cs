@@ -1,7 +1,9 @@
 ﻿using System.Web.Mvc;
 using AlbumsSongsAPI;
+using DAL;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Mvc;

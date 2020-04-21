@@ -6,38 +6,38 @@ using Domain;
 
 namespace BLL
 {
-    public class AlbumBLL : AbstractBLL<Album>, ABLInterface
+    public class AlbumBLL :  ABLInterface
     {
-        private AlbumRepo _albumRepo;
+        private readonly ARInterface _albumRepo;
 
         public AlbumBLL(ARInterface albumRepo)
         {
-            _albumRepo = (AlbumRepo) albumRepo;
+            _albumRepo = albumRepo;
         }
 
-        public override Album GetItemById(int id)
+        public Album GetItemById(int id)
         {
             var al = _albumRepo.GetItemById(id);
             return al;
         }
 
-        public override Album CreateNewItem(Album album)
+        public Album CreateNewItem(Album album)
         {
             var al = _albumRepo.SaveItem(album);
             return al;
         }
 
-        public override int DeleteItemById(int id)
+        public int DeleteItemById(int id)
         {
             return _albumRepo.DeleteItem(id);
         }
 
-        public override Album UpdateItem(Album album)
+        public Album UpdateItem(Album album)
         {
             return _albumRepo.UpdateItem(album);
         }
 
-        public override IEnumerable<Album> GetAllItems()
+        public IEnumerable<Album> GetAllItems()
         {
             return _albumRepo.GetAllItems();
         }

@@ -15,10 +15,10 @@ namespace AlbumsSongsAPI.Controllers
     {
         public SongsController(SBLInterface songBll)
         {
-            _songBll = (SongBLL) songBll;
+            _songBll = songBll;
         }
 
-        private SongBLL _songBll;
+        private SBLInterface _songBll;
         
         /// <summary>
         /// GET api/songs список всех песен 

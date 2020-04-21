@@ -29,6 +29,10 @@
   "frameworks": {
     "netcoreapp3.1": {
       "dependencies": {
+        "Microsoft.EntityFrameworkCore.Sqlite": {
+          "target": "Package",
+          "version": "[3.1.3, )"
+        },
         "Ninject": {
           "target": "Package",
           "version": "[3.3.4, )"
